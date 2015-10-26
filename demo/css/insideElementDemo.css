@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+header > h1 {
+  font-size: 72px;
+  line-height: 1.5;
+  color: #2c3e50;
+  font-weight: 100;
+  border-bottom: 2px solid #ddd;
+}
+header > h1 > span > a {
+  font-size: 20%;
+  color: #2c3e50;
+  text-decoration: none;
+  margin-left: 10px;
+}
+#container {
+  width:  980px;
+  margin: 0 auto;
+}
+section {
+  height: 400px;
+  margin: 60px 0;
+  background-color: #2c3e50;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+section > .text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+section > .text > h1 {
+  font-size: 42px;
+  color: #fff;
+  border-bottom: 0;
+  margin: 0 0 10px;
+}
+section > .text > h3 {
+  color: #fff;
+  margin: 0;
+}
+#main {
+  text-align: center;
+}
+#more {
+  margin: 20px auto 48px;
+}

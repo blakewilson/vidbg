@@ -1,0 +1,31 @@
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.block-container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.block-container > .block {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 75%;
+}
+.block-container > .block > h1 {
+  font-size: 75px;
+  color: #fff;
+  border-bottom: 0;
+  margin: 0 0 10px;
+}
+.block-container > .block > h3 {
+  color: #fff;
+  margin: 0;
+  font-size: 32px;
+}
