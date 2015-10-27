@@ -22,22 +22,22 @@ To get started, [download the script](https://github.com/blakedotvegas/supreme_t
 
 There is two ways to initialize the script; from HTML, and from javascript. Both methods will be shown below.
 
-### Initialzed from HTML
+### Initialized from HTML
 
 ```html
 <div class="vidbg-box" style="width: 650px; height: 338px;"
   data-vidbg-bg="mp4: http://example.com/video.mp4, webm: path/to/video.webm, poster: path/to/poster.jpg"
-  data-vidbg-options="loop: true, muted: true">
+  data-vidbg-options="loop: true, muted: true, overlay: true">
 </div>
 ```
 
-### Initialzed from Javascript
+### Initialized from Javascript
 
 ```js
 $('.vidbg-box').vidbg({
-  mp4: http://example.com/video.mp4,
-  webm: path/to/video.webm,
-  poster: path/to/fallback-image.png
+  'mp4': 'http://example.com/video.mp4',
+  'webm': 'path/to/video.webm',
+  'poster': 'path/to/fallback-image.png',
 }, {
   // options
 });
@@ -53,12 +53,20 @@ It is important to note that supplying both `.webm` and `.mp4` will highly incre
   playbackRate: 1,
   muted: true,
   loop: true,
-  autoplay: true,
   position: '50% 50%',
-  resizing: true
+  resizing: true,
+  overlay: false,
 }
 ```
 
+## Resizing
+
+When resizing is set to true (default) the video will resize automatically when the window is expanded or compressed.
+
+## overlay
+
+Setting `overlay` to `true` will add a faint pattern over your video. This is helpful when your video is primarily white and you have white text on top. `overlay` is set to `false` by default.
+
 # License
 
-Vidbg.js is licenseed under The MIT License. You can view it [here](https://github.com/blakedotvegas/vidbg/master/LICENSE).
+Vidbg.js is licensed under The MIT License. You can view it [here](https://github.com/blakedotvegas/vidbg/master/LICENSE).
