@@ -63,10 +63,10 @@ It is important to note that supplying both `.webm` and `.mp4` will highly incre
 
 When resizing is set to true (default) the video will resize automatically when the window is expanded or compressed.
 
-## overlay
+## Overlay
 
 Setting `overlay` to `true` will add a faint pattern over your video. This is helpful when your video is primarily white and you have white text on top. `overlay` is set to `false` by default.
 
 # License
 
-Vidbg.js is licensed under The MIT License. You can view it [here](https://github.com/blakedotvegas/vidbg/master/LICENSE).
+Vidbg.js is licensed under The MIT License. You can view it [here](https://github.com/blakedotvegas/vidbg/blob/master/LICENSE).
