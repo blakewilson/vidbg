@@ -1,7 +1,7 @@
 /*!
- * Vidbg v1.0 (https://github.com/blakedotvegas/vidbg)
+ * Vidbg v1.0 (https://github.com/blakewilson/vidbg)
  * Vidbg By Blake Wilson
- * @license Licensed Under MIT (https://github.com/blakedotvegas/vidbg/master/LICENSE)
+ * @license Licensed Under MIT (https://github.com/blakewilson/vidbg/blob/master/LICENSE)
  */
 !(function(root, factory) {
   if (typeof define === 'function' && define.amd) {
