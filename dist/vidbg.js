@@ -1,5 +1,5 @@
 /*!
- * Vidbg v1.0 (https://github.com/blakewilson/vidbg)
+ * Vidbg v1.1 (https://github.com/blakewilson/vidbg)
  * Vidbg By Blake Wilson
  * @license Licensed Under MIT (https://github.com/blakewilson/vidbg/blob/master/LICENSE)
  */
@@ -37,6 +37,8 @@
     autoplay: true,
     position: '50% 50%',
     overlay: false,
+    overlayColor: '0, 0, 0',
+    overlayAlpha: 0.3,
     resizing: true
   };
 
@@ -331,7 +333,7 @@
 
     // Set an overlay if settings is true
     if (settings.overlay) {
-      $( "<div class='vidbg-overlay' style='position:absolute;top:0;right:0;left:0;bottom:0;z-index:-1;background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSJ0cmFuc3BhcmVudCI+PC9yZWN0Pgo8cGF0aCBkPSJNMCA1TDUgMFpNNiA0TDQgNlpNLTEgMUwxIC0xWiIgc3Ryb2tlPSIjMjkyNzI3IiBzdHJva2Utd2lkdGg9IjMuMjUiIG9wYWNpdHk9Ii4yNSI+PC9wYXRoPgo8L3N2Zz4=);'></div>" ).insertAfter( $( ".vidbg-container > video" ) );
+      $( "<div class='vidbg-overlay' style='position:absolute;top:0;right:0;left:0;bottom:0;z-index:-1;background: rgba(" + settings.overlayColor + ", " + settings.overlayAlpha + ")'></div>" ).insertAfter( $( ".vidbg-container > video" ) );
     }
   };
 
