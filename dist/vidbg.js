@@ -1,5 +1,5 @@
 /*!
- * Vidbg v1.0 (https://github.com/blakewilson/vidbg)
+ * Vidbg v1.1 (https://github.com/blakewilson/vidbg)
  * Vidbg By Blake Wilson
  * @license Licensed Under MIT (https://github.com/blakewilson/vidbg/blob/master/LICENSE)
  */
@@ -37,6 +37,8 @@
     autoplay: true,
     position: '50% 50%',
     overlay: false,
+    overlayColor: '#000',
+    overlayAlpha: 0.3,
     resizing: true
   };
 
@@ -154,6 +156,24 @@
     }
 
     return { x: x, y: y };
+  }
+
+  /*
+   * Hex to RGB
+   */
+  function hexToRgb(hex) {
+    // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+        return r + r + g + g + b + b;
+    });
+
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
   }
 
   /**
@@ -331,7 +351,7 @@
 
     // Set an overlay if settings is true
     if (settings.overlay) {
-      $( "<div class='vidbg-overlay' style='position:absolute;top:0;right:0;left:0;bottom:0;z-index:-1;background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSJ0cmFuc3BhcmVudCI+PC9yZWN0Pgo8cGF0aCBkPSJNMCA1TDUgMFpNNiA0TDQgNlpNLTEgMUwxIC0xWiIgc3Ryb2tlPSIjMjkyNzI3IiBzdHJva2Utd2lkdGg9IjMuMjUiIG9wYWNpdHk9Ii4yNSI+PC9wYXRoPgo8L3N2Zz4=);'></div>" ).insertAfter( $( ".vidbg-container > video" ) );
+      $( "<div class='vidbg-overlay' style='position:absolute;top:0;right:0;left:0;bottom:0;background: rgba(" + hexToRgb(settings.overlayColor).r + ", " + hexToRgb(settings.overlayColor).g + ", " + hexToRgb(settings.overlayColor).b + ", " + settings.overlayAlpha + ")'></div>" ).insertAfter( $( ".vidbg-container > video" ) );
     }
   };
 

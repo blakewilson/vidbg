@@ -27,7 +27,7 @@ There is two ways to initialize the script; from HTML, and from javascript. Both
 ```html
 <div class="vidbg-box" style="width: 650px; height: 338px;"
   data-vidbg-bg="mp4: http://example.com/video.mp4, webm: path/to/video.webm, poster: path/to/poster.jpg"
-  data-vidbg-options="loop: true, muted: true, overlay: true">
+  data-vidbg-options="loop: true, muted: true, overlay: true, overlayColor: #000, overlayAlpha: 0.3">
 </div>
 ```
 
@@ -56,6 +56,8 @@ It is important to note that supplying both `.webm` and `.mp4` will highly incre
   position: '50% 50%',
   resizing: true,
   overlay: false,
+  overlayColor: '#000',
+  overlayAlpha: '0.3',
 }
 ```
 
@@ -65,7 +67,7 @@ When resizing is set to true (default) the video will resize automatically when 
 
 ## Overlay
 
-Setting `overlay` to `true` will add a faint pattern over your video. This is helpful when your video is primarily white and you have white text on top. `overlay` is set to `false` by default.
+Setting `overlay` to `true` will add an RGBA background over your video. This is helpful when your video is primarily white and you have white text on top. `overlay` is set to `false` by default. If set to true, `overlayColor` and `overlayAlpha` are used. `overlayColor` is the color of the overlay in HEX and `overlayAlpha` is the opacity of the overlay specified between `0.0-1`.
 
 # License
 
