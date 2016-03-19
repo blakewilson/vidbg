@@ -37,7 +37,7 @@
     autoplay: true,
     position: '50% 50%',
     overlay: false,
-    overlayColor: '0, 0, 0',
+    overlayColor: '#000',
     overlayAlpha: 0.3,
     resizing: true
   };
@@ -156,6 +156,24 @@
     }
 
     return { x: x, y: y };
+  }
+
+  /*
+   * Hex to RGB
+   */
+  function hexToRgb(hex) {
+    // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+        return r + r + g + g + b + b;
+    });
+
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
   }
 
   /**
@@ -333,7 +351,7 @@
 
     // Set an overlay if settings is true
     if (settings.overlay) {
-      $( "<div class='vidbg-overlay' style='position:absolute;top:0;right:0;left:0;bottom:0;z-index:-1;background: rgba(" + settings.overlayColor + ", " + settings.overlayAlpha + ")'></div>" ).insertAfter( $( ".vidbg-container > video" ) );
+      $( "<div class='vidbg-overlay' style='position:absolute;top:0;right:0;left:0;bottom:0;background: rgba(" + hexToRgb(settings.overlayColor).r + ", " + hexToRgb(settings.overlayColor).g + ", " + hexToRgb(settings.overlayColor).b + ", " + settings.overlayAlpha + ")'></div>" ).insertAfter( $( ".vidbg-container > video" ) );
     }
   };
 
