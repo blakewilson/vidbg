@@ -1,5 +1,5 @@
 /*!
- * Vidbg v1.1 (https://github.com/blakewilson/vidbg)
+ * Vidbg v1.1.1 (https://github.com/blakewilson/vidbg)
  * Vidbg By Blake Wilson
  * @license Licensed Under MIT (https://github.com/blakewilson/vidbg/blob/master/LICENSE)
  */
@@ -224,6 +224,7 @@
     var position = parsePosition(settings.position);
     var $video;
     var $wrapper;
+    var $overlay;
 
     // Set styles of a video wrapper
     $wrapper = vidbg.$wrapper = $('<div class="vidbg-container">').css({
@@ -318,6 +319,7 @@
       '-ms-transform': 'translate(-' + position.x + ', -' + position.y + ')',
       '-moz-transform': 'translate(-' + position.x + ', -' + position.y + ')',
       transform: 'translate(-' + position.x + ', -' + position.y + ')',
+      'max-width' : 'none',
 
       // Disable visibility, while loading
       visibility: 'hidden',
@@ -349,9 +351,19 @@
     // Append a video
     $wrapper.append($video);
 
+
+    $overlay = vidbg.$overlay = $('<div class="vidbg-overlay">').css({
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      background: 'rgba(' + hexToRgb(settings.overlayColor).r + ', ' + hexToRgb(settings.overlayColor).g + ', ' + hexToRgb(settings.overlayColor).b + ', ' + settings.overlayAlpha + ')',
+    });
+
     // Set an overlay if settings is true
     if (settings.overlay) {
-      $( "<div class='vidbg-overlay' style='position:absolute;top:0;right:0;left:0;bottom:0;background: rgba(" + hexToRgb(settings.overlayColor).r + ", " + hexToRgb(settings.overlayColor).g + ", " + hexToRgb(settings.overlayColor).b + ", " + settings.overlayAlpha + ")'></div>" ).insertAfter( $( ".vidbg-container > video" ) );
+      $wrapper.append($overlay);
     }
   };
 
