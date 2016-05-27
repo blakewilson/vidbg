@@ -1,5 +1,5 @@
 /*!
- * Vidbg v1.1 (https://github.com/blakewilson/vidbg)
+ * Vidbg v1.1.1 (https://github.com/blakewilson/vidbg)
  * Vidbg By Blake Wilson
  * @license Licensed Under MIT (https://github.com/blakewilson/vidbg/blob/master/LICENSE)
  */
