@@ -4,50 +4,48 @@
 <head>
   <meta charset="utf-8">
   <title>Vidbg.js Demo</title>
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="css/insideElementDemo.css" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link href="../dist/vidbg.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
   <div id="container">
     <header>
-      <h1>vidbg.js<span><a href="http://blakewilson.me" target="_blank">http://blakewilson.me</a></span></h1>
+      <h1>vidbg.js</h1>
     </header>
     <div id="main">
-      <section class="section-first" data-vidbg-bg="mp4: media/mp4_video.mp4, webm: media/webm_video.webm, poster: media/fallback.jpg" data-vidbg-options="loop: true, muted: true, overlay: false">
+      <section class="section-first">
         <div class="text">
           <h1>Video Background</h1>
-          <h3>Initialized by HTML</h3>
         </div>
       </section>
       <section class="section-second">
         <div class="text">
           <h1>Video Background + Overlay</h1>
-          <h3>Initialized by javascript</h3>
         </div>
       </section>
     </div>
   </div>
+  
+  <script src="../dist/vidbg.js"></script>
 
   <script type="text/javascript">
-    jQuery(function($){
-          $('.section-second').vidbg({
-              'mp4': 'media/mp4_video.mp4',
-              'webm': 'media/webm_video.webm',
-              'poster': 'media/fallback.jpg',
-          }, {
-            // Options
-            muted: true,
-            loop: true,
-						overlay: true,
-            overlayColor: '#03A9F4',
-            overlayAlpha: 0.8,
-          });
-      });
-  </script>
+    var sectionFirst = new vidbg('.section-first', {
+      mp4: 'media/mp4_video.mp4',
+      webm: 'media/webm_video.webm',
+      poster: 'media/fallback.jpg',
+    })
 
-  <script src="../dist/vidbg.min.js"></script>
+    var sectionSecond = new vidbg('.section-second', {
+      mp4: 'media/mp4_video.mp4',
+      webm: 'media/webm_video.webm',
+      poster: 'media/fallback.jpg',
+      overlay: true,
+      overlayColor: '#03A9F4',
+      overlayAlpha: 0.8,
+    })
+  </script>
 
 </body>
 </html>

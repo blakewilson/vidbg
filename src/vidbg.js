@@ -4,7 +4,7 @@
  * @license Licensed Under MIT (https://github.com/blakewilson/vidbg/blob/master/LICENSE)
  */
 
-import convert from 'color-convert'
+const convert = require('color-convert')
 
 class vidbg {
   /**
@@ -15,6 +15,12 @@ class vidbg {
    * @param {object} attributes The attributes for the HTML5 <video> attribute
    */
   constructor (selector, options, attributes) {
+    if(!selector) {
+      console.error('Please provide a selector')
+      return false
+    }
+
+    // The element
     this.el = document.querySelector(selector)
 
     // These are the default options for vidbg
@@ -28,7 +34,7 @@ class vidbg {
     }
 
     // Use the spread operator to merge our default options with user supplied options.
-    this.options = { defaultOptions, ...options }
+    this.options = { ...defaultOptions, ...options }
 
     // These are the default attributes for the HTML5 <video> element.
     const defaultAttributes = {
@@ -40,21 +46,26 @@ class vidbg {
     }
 
     // Use the spread operator to merge our default attributes with user supplied options.
-    this.attributes = { defaultAttributes, ...attributes }
+    this.attributes = { ...defaultAttributes, ...attributes }
 
     if(!this.options.mp4 && !this.options.webm) {
-      console.error('Please provide either an mp4, webm, or both.')
+      console.error('Please provide an mp4, webm, or both.')
       return false
     }
+
+    this.render()
   }
 
   /**
    * Render the video background to the DOM.
    */
   render() {
-    createContainer()
-    createVideo()
-    resize()
+    this.el.style.position = 'relative'
+    this.el.style.zIndex = 1
+
+    this.createContainer()
+    this.createVideo()
+    this.createOverlay()
 
     window.addEventListener('resize', this.resize)
   }
@@ -65,8 +76,6 @@ class vidbg {
   createContainer = () => {
     this.containerEl = document.createElement('div')
     this.containerEl.className = 'vidbg-container'
-
-    this.createOverlay()
 
     this.createPoster()
 
@@ -112,7 +121,7 @@ class vidbg {
       mp4Source.src = this.options.mp4
       mp4Source.type = 'video/mp4'
 
-      this.video.appendChild(mp4Source)
+      this.videoEl.appendChild(mp4Source)
     }
 
     // Set the WEBM source if one exists.
@@ -121,10 +130,29 @@ class vidbg {
       webmSource.src = this.options.webm
       webmSource.type = 'video/webm'
 
-      this.video.appendChild(webmSource)
+      this.videoEl.appendChild(webmSource)
+    }
+
+    this.videoEl.addEventListener('playing', this.playEvent)
+
+    for (const key in this.attributes) {
+      this.videoEl[key] = this.attributes[key]
     }
 
     this.containerEl.append(this.videoEl)
+  }
+
+  /**
+   * The play event once the video starts playing.
+   * 
+   * @param {Object} event The play event
+   */
+  playEvent = (event) => {
+    // Resize the video on play
+    this.resize()
+
+    // Show the video
+    this.videoEl.style.opacity = 1
   }
 
   /**
@@ -136,8 +164,8 @@ class vidbg {
     const containerHeight = this.containerEl.offsetHeight
 
     // Get the width and height of the HTML5 <video> element we created
-    const videoWidth = this.video.videoWidth
-    const videoHeight = this.video.videoHeight
+    const videoWidth = this.videoEl.videoWidth
+    const videoHeight = this.videoEl.videoHeight
 
     /**
      * Depending on the width and height of the browser, we will either set the video width
@@ -145,13 +173,13 @@ class vidbg {
      * to the container's height.
      */
     if (containerWidth / videoWidth > containerHeight / videoHeight) {
-      this.video.style.width = `${containerWidth}px`
-      this.video.style.height = 'auto'
+      this.videoEl.style.width = `${containerWidth}px`
+      this.videoEl.style.height = 'auto'
     } else {
-      this.video.style.width = 'auto'
-      this.video.style.height = `${containerHeight}px`
+      this.videoEl.style.width = 'auto'
+      this.videoEl.style.height = `${containerHeight}px`
     }
   }
 }
 
-export default vidbg
+module.exports = vidbg
