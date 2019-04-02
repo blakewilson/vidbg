@@ -4,6 +4,8 @@
  * @license Licensed Under MIT (https://github.com/blakewilson/vidbg/blob/master/LICENSE)
  */
 
+import '@babel/polyfill'
+
 import convert from 'color-convert'
 
 class vidbg {
