@@ -9,13 +9,13 @@ const convert = require('color-convert')
 class vidbg {
   /**
    * Setup our defualt options and config for our plugin.
-   * 
+   *
    * @param {String} selector The selector for the video background
    * @param {object} options The options for the plugin
    * @param {object} attributes The attributes for the HTML5 <video> attribute
    */
   constructor (selector, options, attributes) {
-    if(!selector) {
+    if (!selector) {
       console.error('Please provide a selector')
       return false
     }
@@ -48,7 +48,7 @@ class vidbg {
     // Use the spread operator to merge our default attributes with user supplied options.
     this.attributes = { ...defaultAttributes, ...attributes }
 
-    if(!this.options.mp4 && !this.options.webm) {
+    if (!this.options.mp4 && !this.options.webm) {
       console.error('Please provide an mp4, webm, or both.')
       return false
     }
@@ -59,7 +59,7 @@ class vidbg {
   /**
    * Render the video background to the DOM.
    */
-  render() {
+  render () {
     this.el.style.position = 'relative'
     this.el.style.zIndex = 1
 
@@ -89,7 +89,7 @@ class vidbg {
     this.overlayEl = document.createElement('div')
     this.overlayEl.className = 'vidbg-overlay'
 
-    if(this.options.overlay) {
+    if (this.options.overlay) {
       // Convert the overlayColor HEX into an RGB
       const rgb = convert.hex.rgb(this.options.overlayColor)
 
@@ -104,7 +104,7 @@ class vidbg {
    * If the poster option exists, add it to the container's backgroundImage style attribute.
    */
   createPoster = () => {
-    if(this.options.poster) {
+    if (this.options.poster) {
       this.containerEl.style.backgroundImage = `url(${this.options.poster})`
     }
   }
@@ -144,7 +144,7 @@ class vidbg {
 
   /**
    * The play event once the video starts playing.
-   * 
+   *
    * @param {Object} event The play event
    */
   playEvent = (event) => {

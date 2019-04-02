@@ -17,14 +17,19 @@
     "url": "https://github.com/blakewilson/vidbg/issues"
   },
   "homepage": "https://github.com/blakewilson/vidbg#readme",
+  "standard": {
+    "parser": "babel-eslint"
+  },
   "dependencies": {
     "@babel/core": "^7.4.0",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "color-convert": "^2.0.0",
     "gulp": "^4.0.0",
     "gulp-sass": "^4.0.2",
+    "standard": "^12.0.1",
     "webpack": "^4.29.6"
   }
 }

@@ -1330,7 +1330,7 @@ var vidbg =
 function () {
   /**
    * Setup our defualt options and config for our plugin.
-   * 
+   *
    * @param {String} selector The selector for the video background
    * @param {object} options The options for the plugin
    * @param {object} attributes The attributes for the HTML5 <video> attribute
