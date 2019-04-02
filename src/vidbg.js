@@ -4,7 +4,7 @@
  * @license Licensed Under MIT (https://github.com/blakewilson/vidbg/blob/master/LICENSE)
  */
 
-const convert = require('color-convert')
+import convert from 'color-convert'
 
 class vidbg {
   /**
@@ -182,4 +182,4 @@ class vidbg {
   }
 }
 
-module.exports = vidbg
+export default vidbg
