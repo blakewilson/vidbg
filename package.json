@@ -21,6 +21,7 @@
   "standard": {
     "parser": "babel-eslint"
   },
+  "browserslist": "> 0.25%, not dead",
   "dependencies": {
     "@babel/core": "^7.4.0",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
