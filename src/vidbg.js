@@ -4,7 +4,7 @@
  * @license Licensed Under MIT (https://github.com/blakewilson/vidbg/blob/master/LICENSE)
  */
 
-import '@babel/polyfill'
+require('@babel/polyfill')
 
 const convert = require('color-convert')
 
