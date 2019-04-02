@@ -1,0 +1,27 @@
+{
+  "name": "vidbg",
+  "version": "2.0.0",
+  "description": "HTML5 jQuery Video Background plugin.",
+  "main": "src/vidbg.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blakewilson/vidbg.git"
+  },
+  "author": "Blake Wilson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blakewilson/vidbg/issues"
+  },
+  "homepage": "https://github.com/blakewilson/vidbg#readme",
+  "dependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "babel-loader": "^8.0.5",
+    "color-convert": "^2.0.0",
+    "webpack": "^4.29.6"
+  }
+}
