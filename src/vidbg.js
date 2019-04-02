@@ -4,9 +4,8 @@
  * @license Licensed Under MIT (https://github.com/blakewilson/vidbg/blob/master/LICENSE)
  */
 
-// import convert from 'color-convert'
-
-const convert = require('color-convert')
+import 'core-js/stable'
+import convert from 'color-convert'
 
 class vidbg {
   /**
