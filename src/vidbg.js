@@ -5,7 +5,7 @@
  */
 
 import 'core-js/stable'
-import convert from 'color-convert'
+// import convert from 'color-convert'
 
 class vidbg {
   /**
@@ -90,13 +90,13 @@ class vidbg {
     this.overlayEl = document.createElement('div')
     this.overlayEl.className = 'vidbg-overlay'
 
-    if (this.options.overlay) {
-      // Convert the overlayColor HEX into an RGB
-      const rgb = convert.hex.rgb(this.options.overlayColor)
+    // if (this.options.overlay) {
+    //   // Convert the overlayColor HEX into an RGB
+    //   const rgb = convert.hex.rgb(this.options.overlayColor)
 
-      // Use the converted rgb with the overlayAlpha to set the backgroundColor
-      this.overlayEl.style.backgroundColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${this.options.overlayAlpha})`
-    }
+    //   // Use the converted rgb with the overlayAlpha to set the backgroundColor
+    //   this.overlayEl.style.backgroundColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${this.options.overlayAlpha})`
+    // }
 
     this.containerEl.append(this.overlayEl)
   }
