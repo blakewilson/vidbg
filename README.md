@@ -9,7 +9,7 @@ If you plan on using vidbg.js with WordPress, make your life a little bit easier
 # Compatibility
 
 * All modern web browsers
-* IE9+
+* IE 11+
 * All mobile web browsers that support autoplaying HTML5 `<video>`
 
 # Instructions
