@@ -79,7 +79,7 @@ class vidbg {
 
     this.createPoster()
 
-    this.el.append(this.containerEl)
+    this.el.appendChild(this.containerEl)
   }
 
   /**
@@ -97,7 +97,7 @@ class vidbg {
       this.overlayEl.style.backgroundColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${this.options.overlayAlpha})`
     }
 
-    this.containerEl.append(this.overlayEl)
+    this.containerEl.appendChild(this.overlayEl)
   }
 
   /**
@@ -139,7 +139,7 @@ class vidbg {
       this.videoEl[key] = this.attributes[key]
     }
 
-    this.containerEl.append(this.videoEl)
+    this.containerEl.appendChild(this.videoEl)
   }
 
   /**
