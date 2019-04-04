@@ -53,13 +53,13 @@ class vidbg {
       return false
     }
 
-    this.render()
+    this.init()
   }
 
   /**
-   * Render the video background to the DOM.
+   * init the video background to the DOM.
    */
-  render () {
+  init () {
     this.el.style.position = 'relative'
     this.el.style.zIndex = 1
 
