@@ -14,8 +14,7 @@ If you plan on using vidbg.js with WordPress, make your life a little bit easier
 
 # Instructions
 
-To get started, [download the script](https://github.com/blakedotvegas/supreme_theme/archive/master.zip). Once you have downloaded the script, include it in your project:
-
+To get started, [download the script](https://github.com/blakewilson/vidbg/releases/latest.zip). Once you have downloaded the script, include it in your project:
 
 ```html
 <!-- <head> -->
@@ -33,7 +32,7 @@ The script accepts three arguments.
 var instance = new vidbg(selector, options, attributes)
 ```
 
-The selector argument is any JavaScript selector, the options are for configuring vidbg.js, and the attributes argument modifies the actual `<video>` element.
+The selector argument is any JavaScript selector, the [options](https://github.com/blakewilson/vidbg/tree/v2#options) are for configuring vidbg.js, and the [attributes](https://github.com/blakewilson/vidbg/tree/v2#attributes) argument modifies the actual `<video>` element.
 
 ```js
 
