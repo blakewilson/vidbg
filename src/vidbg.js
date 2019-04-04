@@ -133,6 +133,17 @@ class vidbg {
       this.videoEl.appendChild(webmSource)
     }
 
+    let playPromise = this.videoEl.play()
+
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        // Autoplay has started.
+      }).catch(e => {
+        // Auto playback failed
+        console.error('Autoplay is not supported!')
+      })
+    }
+
     this.videoEl.addEventListener('playing', this.playEvent)
 
     for (const key in this.attributes) {
