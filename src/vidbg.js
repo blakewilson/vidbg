@@ -6,6 +6,10 @@
 
 import convert from 'color-convert'
 
+/**
+ * The vidbg class. This will be the reference for the plugin.
+ * For example: var videoBackground = new vidbg(selector, options, attributes)
+ */
 class vidbg {
   /**
    * Setup our defualt options and config for our plugin.
@@ -155,6 +159,7 @@ class vidbg {
 
     this.videoEl.addEventListener('playing', this.playEvent)
 
+    // Set the attributes for the <video> element.
     for (const key in this.attributes) {
       this.videoEl[key] = this.attributes[key]
     }
