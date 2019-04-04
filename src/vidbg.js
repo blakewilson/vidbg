@@ -140,7 +140,7 @@ class vidbg {
         // Autoplay has started.
       }).catch(e => {
         // Auto playback failed
-        console.error('Autoplay is not supported!')
+        window.alert('Autoplay is not supported!')
       })
     }
 
