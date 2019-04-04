@@ -78,6 +78,16 @@ const defaultAttributes = {
 ## Overlay
 Setting the `overlay` option to `true` will add an RGBA background over your video. This is helpful when you want to display text or meaningful content over the video background to increase legibility.
 
+## Fallback Image Flashing
+You may experience the fallback image flash on page load. This is because the fallback image is added through JavaScript. As a result of this, it will load after CSS styles are rendered.
+
+If you'd like to combat this, you can preset the fallback image through CSS. For example, if your selector is `.video-box` you could do something like:
+
+```css
+.video-box .vidbg-container {
+  background-image: url(/assets/link-to-fallback.png);
+}
+```
 
 # License
 
