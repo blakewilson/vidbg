@@ -4,7 +4,7 @@
  * @license Licensed Under MIT (https://github.com/blakewilson/vidbg/blob/master/LICENSE)
  */
 
-import convert from 'color-convert'
+import convert from 'hex-rgb'
 
 /**
  * The vidbg class. This will be the reference for the plugin.
@@ -95,7 +95,7 @@ class vidbg {
 
     if (this.options.overlay) {
       // Convert the overlayColor HEX into an RGB
-      const rgb = convert.hex.rgb(this.options.overlayColor)
+      const rgb = convert(this.options.overlayColor, { format: 'array' })
 
       // Use the converted rgb with the overlayAlpha to set the backgroundColor
       this.overlayEl.style.backgroundColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${this.options.overlayAlpha})`
