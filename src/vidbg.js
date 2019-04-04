@@ -133,14 +133,22 @@ class vidbg {
       this.videoEl.appendChild(webmSource)
     }
 
+    // The play promise
     let playPromise = this.videoEl.play()
 
+    /**
+     * If the browser supports promises, we will use the play promise
+     * to determine if autoplay is supported or not.
+     *
+     * If promises are supported, and autoplay is not supported, we will
+     * remove the HTML5 <video> element and the fallback image will be used.
+     */
     if (playPromise !== undefined) {
       playPromise.then(() => {
         // Autoplay has started.
       }).catch(e => {
-        // Auto playback failed
-        window.alert('Autoplay is not supported!')
+        console.error('Autoplay is not supported')
+        this.videoEl.remove()
       })
     }
 
