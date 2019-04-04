@@ -8,7 +8,8 @@ module.exports = env => {
       path: path.resolve(__dirname, 'dist'),
       filename: 'vidbg.js',
       library: 'vidbg',
-      libraryTarget: 'var'
+      libraryTarget: 'var',
+      libraryExport: 'default'
     },
     devtool: 'none',
     module: {
