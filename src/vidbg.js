@@ -151,13 +151,13 @@ class vidbg {
       playPromise.then(function () {
         // Autoplay has started.
       }).catch(function (e) {
-        console.log(e)
         console.error('Autoplay is not supported')
-        this.videoEl.remove()
+
+        this.removeVideo()
       })
     }
 
-    this.videoEl.addEventListener('playing', this.playEvent)
+    this.videoEl.addEventListener('playing', this.onPlayEvent)
 
     // Set the attributes for the <video> element.
     for (const key in this.attributes) {
@@ -172,12 +172,19 @@ class vidbg {
    *
    * @param {Object} event The play event
    */
-  playEvent = (event) => {
+  onPlayEvent = (event) => {
     // Resize the video on play
     this.resize()
 
     // Show the video
     this.videoEl.style.opacity = 1
+  }
+
+  /**
+   * Removes the HTML5 <video> element
+   */
+  removeVideo = () => {
+    this.videoEl.remove()
   }
 
   /**
