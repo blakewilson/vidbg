@@ -88,6 +88,25 @@ If you'd like to combat this, you can preset the fallback image through CSS. For
 }
 ```
 
+## Methods
+
+Below are the methods that are available:
+
+```js
+// First, create the vidbg.js instance.
+var instance = new vidbg('.vidbg-box', {
+  mp4: 'http://example.com/video.mp4',
+  webm: 'path/to/video.webm',
+  poster: 'path/to/fallback.jpg',
+})
+
+// Manually resize the video background
+instance.resize()
+
+// Remove the <video> element
+instance.removeVideo()
+```
+
 # License
 
 vidbg.js is licensed under The MIT License. You can view it [here](https://github.com/blakedotvegas/vidbg/blob/master/LICENSE).

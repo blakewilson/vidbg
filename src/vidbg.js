@@ -148,9 +148,9 @@ class vidbg {
      * remove the HTML5 <video> element and the fallback image will be used.
      */
     if (playPromise !== undefined) {
-      playPromise.then(function () {
+      playPromise.then(() => {
         // Autoplay has started.
-      }).catch(function (e) {
+      }).catch(e => {
         console.error('Autoplay is not supported')
 
         this.removeVideo()
