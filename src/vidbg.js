@@ -137,6 +137,11 @@ class vidbg {
       this.videoEl.appendChild(webmSource)
     }
 
+    // Set the attributes for the <video> element.
+    for (const key in this.attributes) {
+      this.videoEl[key] = this.attributes[key]
+    }
+
     // The play promise
     let playPromise = this.videoEl.play()
 
@@ -158,11 +163,6 @@ class vidbg {
     }
 
     this.videoEl.addEventListener('playing', this.onPlayEvent)
-
-    // Set the attributes for the <video> element.
-    for (const key in this.attributes) {
-      this.videoEl[key] = this.attributes[key]
-    }
 
     this.containerEl.appendChild(this.videoEl)
   }
