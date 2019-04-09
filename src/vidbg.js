@@ -137,7 +137,12 @@ class vidbg {
       this.videoEl.appendChild(webmSource)
     }
 
-    // Set the attributes for the <video> element.
+    /**
+     * Set the attributes for the <video> element.
+     * It is important that these are added to the video element before the
+     * play promise since autoplay primarily only works when the video is
+     * muted.
+     */
     for (const key in this.attributes) {
       this.videoEl[key] = this.attributes[key]
     }
