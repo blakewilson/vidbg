@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <title>Vidbg.js Demo</title>
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="css/fullscreenDemo.css" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link href="../dist/vidbg.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -18,24 +18,18 @@
     </div>
   </div>
 
-  <script type="text/javascript">
-    jQuery(function($){
-          $('body').vidbg({
-              'mp4': 'media/mp4_video.mp4',
-              'webm': 'media/webm_video.webm',
-              'poster': 'media/fallback.jpg',
-          }, {
-            // Options
-            muted: true,
-            loop: true,
-  					overlay: true,
-            overlayColor: '#000',
-            overlayAlpha: '0.3',
-          });
-      });
-  </script>
+  <script src="../dist/vidbg.js"></script>
 
-  <script src="../dist/vidbg.min.js"></script>
+  <script type="text/javascript">
+    var videoBackground = new vidbg('body', {
+      mp4: 'media/mp4_video.mp4',
+      webm: 'media/webm_video.webm',
+      poster: 'media/fallback.jpg',
+      overlay: true
+    }, {
+      
+    })
+  </script>
 
 </body>
 </html>
