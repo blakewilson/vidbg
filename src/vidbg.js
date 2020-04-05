@@ -40,9 +40,14 @@ class vidbg {
     // Use the spread operator to merge our default options with user supplied options.
     this.options = { ...defaultOptions, ...options }
 
+    /**
+     * Autoplay attribute has been removed from the default attributes as it was conflicting
+     * with playback in Safari with the play promise. Now, the play promise handles the
+     * autoplay.
+     */
+
     // These are the default attributes for the HTML5 <video> element.
     const defaultAttributes = {
-      autoplay: true,
       controls: false,
       loop: true,
       muted: true,
@@ -119,23 +124,7 @@ class vidbg {
   createVideo = () => {
     this.videoEl = document.createElement('video')
 
-    // Set the MP4 source if one exists.
-    if (this.options.mp4) {
-      const mp4Source = document.createElement('source')
-      mp4Source.src = this.options.mp4
-      mp4Source.type = 'video/mp4'
-
-      this.videoEl.appendChild(mp4Source)
-    }
-
-    // Set the WEBM source if one exists.
-    if (this.options.webm) {
-      const webmSource = document.createElement('source')
-      webmSource.src = this.options.webm
-      webmSource.type = 'video/webm'
-
-      this.videoEl.appendChild(webmSource)
-    }
+    this.videoEl.addEventListener('playing', this.onPlayEvent)
 
     /**
      * Set the attributes for the <video> element.
@@ -147,29 +136,45 @@ class vidbg {
       this.videoEl[key] = this.attributes[key]
     }
 
-    // The play promise
-    let playPromise = this.videoEl.play()
+    if (this.options.mp4) {
+      const mp4Source = document.createElement('source')
+      mp4Source.src = this.options.mp4
+      mp4Source.type = 'video/mp4'
 
-    /**
-     * If the browser supports promises, we will use the play promise
-     * to determine if autoplay is supported or not.
-     *
-     * If promises are supported, and autoplay is not supported, we will
-     * remove the HTML5 <video> element and the fallback image will be used.
-     */
-    if (playPromise !== undefined) {
-      playPromise.then(() => {
-        // Autoplay has started.
-      }).catch(e => {
-        console.error('Autoplay is not supported')
-
-        this.removeVideo()
-      })
+      this.videoEl.appendChild(mp4Source)
     }
 
-    this.videoEl.addEventListener('playing', this.onPlayEvent)
+    if (this.options.webm) {
+      const webmSource = document.createElement('source')
+      webmSource.src = this.options.webm
+      webmSource.type = 'video/webm'
+
+      this.videoEl.appendChild(webmSource)
+    }
 
     this.containerEl.appendChild(this.videoEl)
+
+    /**
+     * Create a play promise for browsers that support it. If a browser
+     * supports promises, we can determine if a video can be played. If 
+     * it can not, we will console an error message and remove the video
+     * instance.
+     * 
+     * If the browser does not support promises, the initialization of the
+     * playPromise variable will call play() regardless, and the browser
+     * will try to play the video.
+     */
+    let playPromise = this.videoEl.play()
+
+    if(playPromise !== undefined) {
+      playPromise
+        .catch(err => {
+          console.error(err)
+          console.error('Autoplay is not supported')
+
+          this.removeVideo()
+        })
+    }
   }
 
   /**
