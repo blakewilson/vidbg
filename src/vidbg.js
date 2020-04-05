@@ -99,11 +99,10 @@ class vidbg {
     this.overlayEl.className = 'vidbg-overlay'
 
     if (this.options.overlay) {
-      // Convert the overlayColor HEX into an RGB
-      const rgb = convert(this.options.overlayColor, { format: 'array' })
-
-      // Use the converted rgb with the overlayAlpha to set the backgroundColor
-      this.overlayEl.style.backgroundColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${this.options.overlayAlpha})`
+      const [r, g, b] = convert(this.options.overlayColor, { format: 'array' })
+      const rgba = [r, g, b, this.options.overlayAlpha]
+      
+      this.overlayEl.style.backgroundColor = `rgba(${rgba.join(', ')})`
     }
 
     this.containerEl.appendChild(this.overlayEl)
