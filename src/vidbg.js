@@ -18,7 +18,7 @@ class vidbg {
    * @param {object} options The options for the plugin
    * @param {object} attributes The attributes for the HTML5 <video> attribute
    */
-  constructor (selector, options, attributes) {
+  constructor(selector, options, attributes) {
     if (!selector) {
       console.error('Please provide a selector')
       return false
@@ -26,6 +26,11 @@ class vidbg {
 
     // The element
     this.el = document.querySelector(selector)
+
+    if (!this.el) {
+      console.error(`The selector you specified, "${selector}", does not exist!`)
+      return false
+    }
 
     // These are the default options for vidbg
     const defaultOptions = {
@@ -68,7 +73,7 @@ class vidbg {
   /**
    * init the video background to the DOM.
    */
-  init () {
+  init() {
     this.el.style.position = 'relative'
     this.el.style.zIndex = 1
 
@@ -101,7 +106,7 @@ class vidbg {
     if (this.options.overlay) {
       const [r, g, b] = convert(this.options.overlayColor, { format: 'array' })
       const rgba = [r, g, b, this.options.overlayAlpha]
-      
+
       this.overlayEl.style.backgroundColor = `rgba(${rgba.join(', ')})`
     }
 
@@ -165,7 +170,7 @@ class vidbg {
      */
     let playPromise = this.videoEl.play()
 
-    if(playPromise !== undefined) {
+    if (playPromise !== undefined) {
       playPromise
         .catch(err => {
           console.error(err)
@@ -194,6 +199,20 @@ class vidbg {
    */
   removeVideo = () => {
     this.videoEl.remove()
+  }
+
+  /**
+   * Get the HTML <video> element
+   */
+  getVideo = () => {
+    return this.videoEl
+  }
+
+  /**
+   * Destroy the vidbg instance
+   */
+  destroy = () => {
+    this.containerEl.remove()
   }
 
   /**
