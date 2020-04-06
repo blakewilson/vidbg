@@ -1,5 +1,5 @@
 /*!
- * vidbg.js v2.0 (https://github.com/blakewilson/vidbg)
+ * vidbg.js v2.0.1 (https://github.com/blakewilson/vidbg)
  * vidbg.js By Blake Wilson
  * @license Licensed Under MIT (https://github.com/blakewilson/vidbg/blob/master/LICENSE)
  */
