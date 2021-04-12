@@ -16,7 +16,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm test
-      - run: npm publish --access public --dry-run
+      - run: npm publish --access public
       - run: npm run build-gh-release-artifact
       - uses: softprops/action-gh-release@v1
         with:
