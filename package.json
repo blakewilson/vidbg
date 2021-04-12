@@ -5,8 +5,8 @@
   "module": "dist/vidbg.js",
   "browser": "dist/vidbg.js",
   "scripts": {
-    "webpack": "webpack",
-    "build": "rollup -c",
+    "start": "webpack --watch --mode development",
+    "build": "webpack",
     "test": "jest"
   },
   "files": [
@@ -48,6 +48,7 @@
     "@types/jest-environment-puppeteer": "^4.4.1",
     "@types/puppeteer": "^5.4.3",
     "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^8.1.1",
     "hex-rgb": "^4.3.0",
     "jest": "^26.6.3",
     "jest-puppeteer": "^4.4.0",

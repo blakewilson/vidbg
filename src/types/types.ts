@@ -7,7 +7,7 @@ export interface VidbgOptions {
   overlayAlpha: number;
 }
 
-export interface VidbgAttributes extends HTMLVideoElement {
+export interface VidbgAttributes {
   controls: boolean;
   loop: boolean;
   muted: boolean;

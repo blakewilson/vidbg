@@ -1,5 +1,3 @@
-// import "./vidbg.css";
-
 import convert from "hex-rgb";
 import { defaultOptions } from "./definitions/defaultVidbgOptions";
 import { defaultAttributes } from "./definitions/defaultVidbgAttributes";
