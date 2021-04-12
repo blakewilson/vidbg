@@ -17,13 +17,11 @@ jobs:
       - run: npm run build
       - run: npm test
       - run: npm publish --access public --dry-run
-      - run: ls
+      - run: npm run build-gh-release-artifact
       - uses: softprops/action-gh-release@v1
         with:
           files: |
-            dist/vidbg.js
-            LICENSE
-            README.md
+            vidbg.zip
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

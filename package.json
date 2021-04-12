@@ -9,7 +9,8 @@
     "start": "webpack --watch --mode development",
     "build": "webpack",
     "format": "prettier --write ./src",
-    "test": "npm run build && jest"
+    "test": "npm run build && jest",
+    "build-gh-release-artifact": "zip vidbg.zip dist/**/** ./README.md ./LICENSE"
   },
   "files": [
     "dist",
