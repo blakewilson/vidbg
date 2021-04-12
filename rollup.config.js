@@ -1,5 +1,5 @@
 import pck from "./package.json";
-import typescript from "@rollup/plugin-typescript";
+import typescript from "rollup-plugin-typescript2";
 import postcss from "rollup-plugin-postcss";
 
 const input = "src/vidbg.ts";
@@ -14,7 +14,9 @@ export default {
     },
   ],
   plugins: [
-    typescript(),
+    typescript({
+      useTsconfigDeclarationDir: true,
+    }),
     postcss({
       extract: true,
       minimize: true,
