@@ -28,8 +28,8 @@ class vidbg {
    */
   constructor(
     selector: string,
-    options: VidbgOptions,
-    attributes: VidbgAttributes
+    options?: VidbgOptions,
+    attributes?: VidbgAttributes
   ) {
     if (!selector) {
       throw new InvalidSelectorError("A selector is required!");
@@ -205,6 +205,18 @@ class vidbg {
    */
   getVideo = () => {
     return this.videoEl;
+  };
+
+  isVideoPlaying = () => {
+    return !this.videoEl.paused;
+  };
+
+  playVideo = () => {
+    return this.videoEl.play();
+  };
+
+  pauseVideo = () => {
+    return this.videoEl.pause();
   };
 
   /**
