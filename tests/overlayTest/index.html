@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../dist/vidbg.css">
+
+  <style>
+    .instance {
+      width: 100%;
+      padding-top: 56.25%;
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="instance"></div>
+
+  <script src="../../dist/vidbg.js"></script>
+
+  <script>
+    var videoBackground = new vidbg('.instance', {
+      mp4: '../setup/video.mp4',
+      webm: '../setup/video.webm',
+      overlay: true,
+      overlayColor: '#fff',
+      overlayAlpha: 0.5
+    })
+  </script>
+</body>
+</html>
