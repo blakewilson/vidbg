@@ -1,7 +1,10 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
+const { BannerPlugin } = require("webpack");
+const pck = require("./package.json");
+const TerserPlugin = require("terser-webpack-plugin");
 
-module.exports = (env) => {
+module.exports = () => {
   return {
     mode: "production",
     entry: "./src/vidbg.ts",
@@ -12,6 +15,9 @@ module.exports = (env) => {
       libraryTarget: "umd",
       libraryExport: "default",
       globalObject: "this",
+    },
+    optimization: {
+      minimizer: [new TerserPlugin({ extractComments: false })],
     },
     module: {
       rules: [
@@ -39,6 +45,13 @@ module.exports = (env) => {
       new CopyPlugin({
         patterns: [{ from: "src/styles" }],
       }),
+      new BannerPlugin(
+        [
+          `vidbg.js v${pck.version} (https://github.com/blakewilson/vidbg)`,
+          `vidbg.js by ${pck.author}`,
+          `@license MIT (https://github.com/blakewilson/vidbg/blob/master/LICENSE)`,
+        ].join("\n")
+      ),
     ],
   };
 };
