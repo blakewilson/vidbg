@@ -5,6 +5,7 @@
     "lib": ["DOM", "ES2015"],
     "allowJs": false,
     "declaration": true,
+    "declarationDir": "dist/types",
     "outDir": "dist",
     "removeComments": true,
     "strict": true,
@@ -15,5 +16,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
+  "include": ["src"],
   "exclude": ["tests"]
 }

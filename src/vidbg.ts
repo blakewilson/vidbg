@@ -1,3 +1,9 @@
+/*!
+ * vidbg.js v2.1.0 (https://github.com/blakewilson/vidbg)
+ * vidbg.js By Blake Wilson (https://blake.id)
+ * @license MIT (https://github.com/blakewilson/vidbg/blob/master/LICENSE)
+ */
+
 import convert from "hex-rgb";
 import { defaultOptions } from "./definitions/defaultVidbgOptions";
 import { defaultAttributes } from "./definitions/defaultVidbgAttributes";
