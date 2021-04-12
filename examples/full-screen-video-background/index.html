@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./node_modules/vidbg.js/dist/vidbg.css" />
+
+    <style>
+      html {
+        height: 100%;
+      }
+
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+      }
+
+      h1 {
+        color: #fff;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Full Screen Video Background</h1>
+
+    <script src="./node_modules/vidbg.js/dist/vidbg.js"></script>
+
+    <script>
+      var instance = new vidbg("body", {
+        mp4: "../../tests/setup/video.mp4",
+        webm: "../../tests/setup/video.webm",
+        poster: "../../tests/setup/poster.jpg",
+        overlay: true,
+        overlayColor: '#000',
+        overlayOpacity: 0.1
+      });
+    </script>
+  </body>
+</html>
