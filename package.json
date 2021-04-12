@@ -16,6 +16,7 @@
     "LICENSE",
     "README.md"
   ],
+  "keywords": ["video background", "video"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/blakewilson/vidbg.git"

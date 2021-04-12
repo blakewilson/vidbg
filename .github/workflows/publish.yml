@@ -16,6 +16,14 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm test
-      - run: npm publish --access public
-        env:
+      - run: npm publish --access public --dry-run
+      - uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist
+            LICENSE
+            README.md
+      env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        
