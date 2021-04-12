@@ -1,5 +1,5 @@
 {
-  "name": "vidbg",
+  "name": "vidbg.js",
   "version": "2.1.0",
   "description": "A minimal vanilla JavaScript video background plugin.",
   "module": "dist/vidbg.js",

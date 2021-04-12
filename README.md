@@ -2,19 +2,27 @@
 
 A minimal vanilla JavaScript video background plugin.
 
-## Working With Wordpress
-
-If you plan on using vidbg.js with WordPress, make your life a little bit easier and download the plugin I made on the [Wordpress Repo](https://wordpress.org/plugins/video-background/).
-
 ## Compatibility
 
 - All modern web browsers
 - IE 11+
 - All mobile web browsers that support autoplaying HTML5 `<video>`
 
-## Instructions
+## Working With Wordpress
 
-To get started, [download the script](https://github.com/blakewilson/vidbg/releases/latest.zip). Once you have downloaded the script, include it in your project:
+If you plan on using vidbg.js with WordPress, make your life a little bit easier and download the plugin I made on the [Wordpress Repo](https://wordpress.org/plugins/video-background/).
+
+## Usage
+
+### Install
+
+```bash
+npm install vidbg.js
+```
+
+### Instructions
+
+In the browser:
 
 ```html
 <!-- <head> -->
@@ -22,6 +30,12 @@ To get started, [download the script](https://github.com/blakewilson/vidbg/relea
 
 <!-- End of <body> -->
 <script src="dist/vidbg.js"></script>
+```
+
+Or if you are working with modules:
+
+```js
+import vidbg from "vidbg.js";
 ```
 
 ### Initializing the Script
@@ -109,8 +123,20 @@ var instance = new vidbg(".vidbg-box", {
 // Manually resize the video background
 instance.resize();
 
+// Manually play the video
+instance.playVideo();
+
+// Manually pause the video
+instance.pauseVideo();
+
+// Get the video playing state
+instance.isVideoPlaying();
+
 // Remove the <video> element
 instance.removeVideo();
+
+// Completely remove the video background
+instance.destroy();
 ```
 
 ## Media
