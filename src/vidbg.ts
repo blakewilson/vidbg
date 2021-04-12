@@ -1,4 +1,4 @@
-import "./vidbg.css";
+// import "./vidbg.css";
 
 import convert from "hex-rgb";
 import { defaultOptions } from "./definitions/defaultVidbgOptions";
@@ -207,14 +207,30 @@ class vidbg {
     return this.videoEl;
   };
 
+  /**
+   * Return the element of the selector provided.
+   */
+  getEl = () => {
+    return this.el;
+  };
+
+  /**
+   * Get the video play state
+   */
   isVideoPlaying = () => {
     return !this.videoEl.paused;
   };
 
+  /**
+   * Play the video background
+   */
   playVideo = () => {
     return this.videoEl.play();
   };
 
+  /**
+   * Pause the video background
+   */
   pauseVideo = () => {
     return this.videoEl.pause();
   };
