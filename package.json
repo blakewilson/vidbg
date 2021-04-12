@@ -21,6 +21,15 @@
   "bugs": {
     "url": "https://github.com/blakewilson/vidbg/issues"
   },
+  "babel": {
+    "presets": [
+      "@babel/preset-typescript",
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  },
   "types": "dist/types/vidbg.d.ts",
   "homepage": "https://github.com/blakewilson/vidbg#readme",
   "browserslist": "> 0.25%, not dead, ie >= 11",

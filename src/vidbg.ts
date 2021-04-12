@@ -253,4 +253,6 @@ class vidbg {
   };
 }
 
+export { VidbgOptions, VidbgAttributes };
+
 export default vidbg;
