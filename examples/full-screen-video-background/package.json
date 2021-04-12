@@ -1,0 +1,11 @@
+{
+  "name": "full-screen-video-background",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "vidbg.js": "^2.1.0"
+  }
+}
