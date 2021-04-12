@@ -11,6 +11,7 @@ module.exports = (env) => {
       library: "vidbg",
       libraryTarget: "umd",
       libraryExport: "default",
+      globalObject: "this",
     },
     module: {
       rules: [
