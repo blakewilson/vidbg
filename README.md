@@ -20,6 +20,8 @@ If you plan on using vidbg.js with WordPress, make your life a little bit easier
 npm install vidbg.js
 ```
 
+Or [download the built `vidbg.zip` from GitHub](https://github.com/blakewilson/vidbg/releases/latest)
+
 ### Instructions
 
 In the browser:
